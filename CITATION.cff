@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use xgraph, cite the software and record the exact source commit."
+type: software
+title: xgraph
+authors:
+  - family-names: Schmitt
+    given-names: Jonas
+repository-code: "https://github.com/jonas-schmitt/xgraph"
+url: "https://github.com/jonas-schmitt/xgraph"
+version: 0.0.1
+license: Apache-2.0
+abstract: "Constrained generation and decoding-time execution for knowledge graphs."

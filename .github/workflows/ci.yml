@@ -1,0 +1,29 @@
+name: CPU source profile
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cpu-docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CUDA_VISIBLE_DEVICES: ""
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install CPU library and documentation dependencies
+        run: >-
+          uv sync --locked --no-default-groups --extra docs --extra rdf
+          --config-setting cmake.define.CMAKE_CUDA_COMPILER=NOTFOUND
+      - name: Check installed examples
+        run: uv run --no-sync python -I tests/test_source_smoke.py
+      - name: Build documentation
+        run: uv run --no-sync python -m sphinx -W --keep-going -b html docs target/docs/html

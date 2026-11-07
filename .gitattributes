@@ -1,0 +1,16 @@
+# Check text files out with LF on every platform.
+* text=auto eol=lf
+
+# Archive convenience only: publication uses the explicit source manifest.
+# This does not remove anything from Git history or change repository visibility.
+/target export-ignore
+/eval export-ignore
+/paper export-ignore
+/data export-ignore
+/models export-ignore
+/.aws export-ignore
+/release export-ignore
+
+# Keep upstream license copies byte-for-byte, including their whitespace.
+LICENSES/*.txt -text -whitespace
+

@@ -1,0 +1,84 @@
+[project]
+name = "xgraph"
+version = "0.0.1"
+description = "Constrained generation and decoding-time execution for any knowledge graph"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0 AND CC-BY-4.0"
+license-files = ["LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md", "LICENSES/*.txt"]
+dependencies = [
+    "numpy>=2.0",
+    "pyarrow==21.0.0",
+    "pyyaml>=6.0",
+    "rank-bm25>=0.2.2",
+    "tokenizers>=0.22",
+]
+
+[project.optional-dependencies]
+rdf = ["rdflib==7.6.0"]
+docs = ["sphinx==8.2.3", "furo==2024.8.6", "myst-parser==4.0.1"]
+assay = ["xgrammar==0.2.8", "llguidance==1.9.1", "outlines-core==0.2.14"]
+
+[dependency-groups]
+dev = [
+    "execnet==2.1.2",
+    "llguidance==1.9.1",
+    "outlines-core==0.2.14",
+    "peft==0.21.0",
+    "pyperplan==2.1",
+    "pytest>=8.4",
+    "pytest-xdist==3.8.0",
+    "rdflib==7.6.0",
+    "ruff>=0.14",
+    "torch>=2.14",
+    "transformers>=5.20.0",
+    "xgrammar==0.2.8",
+]
+
+[build-system]
+requires = ["scikit-build-core==1.1.2", "nanobind==2.12.0"]
+build-backend = "scikit_build_core.build"
+
+[tool.scikit-build]
+minimum-version = "build-system.requires"
+build-dir = "build/{wheel_tag}"
+wheel.packages = ["src/xgraph"]
+cmake.build-type = "Release"
+# Build publication artifacts from the curated source export. These exclusions
+# also keep known private research roots out of accidental local sdists.
+sdist.exclude = [
+    "/target/**", "/eval/**", "/paper/**", "/data/**", "/models/**",
+    "/.git/**", "/.aws/**",
+    "/.venv/**", "/build/**", "/release/**", "/.env*",
+]
+
+[tool.uv]
+# Rebuild the native engine whenever its sources or build files change.
+cache-keys = [
+    { file = "pyproject.toml" },
+    { file = "CMakeLists.txt" },
+    { file = "csrc/**/*" },
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["--strict-markers", "-ra"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+# Third-party code is kept as released, with changes marked in its __init__.py.
+extend-exclude = ["src/xgraph/gwalk_upstream"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "NPY"]
+# Labels in test KGs use these on purpose: they are multi-byte in UTF-8.
+allowed-confusables = ["–", "⁄"]

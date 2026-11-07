@@ -1,0 +1,12 @@
+xgraph
+Copyright 2026 xgraph contributors.
+
+Project-owned code is licensed under the Apache License, Version 2.0.
+Copyright remains with the respective holders.
+
+Separately licensed GWalk code and prompts, and adapted ReFactX prompt text,
+retain their upstream attribution and terms. Native builds incorporate
+nanobind and its robin-map dependency under their own terms.
+See THIRD_PARTY_NOTICES.md and LICENSES/ for attribution, scope and license texts.
+
+These notices are informational and do not modify any license.

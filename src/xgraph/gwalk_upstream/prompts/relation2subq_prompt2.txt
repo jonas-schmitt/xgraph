@@ -1,0 +1,19 @@
+Given this relation: "place of birth" and this subject: "Steve Jobs",
+The corresponding question is "Where was Steve Jobs born?"
+This ends the block.
+
+Given this relation: "performer" and this subject: "Yesterday",
+The corresponding question is "Who performed Yesterday?"
+This ends the block.
+
+Given this relation: "director / manager" and this subject: "The Beatles",
+The corresponding question is "Who is the director / manager of The Beatles?"
+This ends the block.
+
+Given this relation: "country of citizenship" and this subject: "Brian Epstein",
+The corresponding question is "What is the country of citizenship of Brian Epstein?"
+This ends the block.
+
+Given this relation: "capital" and this subject: "Albania",
+The corresponding question is "What is the capital of Albania?"
+

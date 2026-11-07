@@ -1,0 +1,36 @@
+# Untracked output: gate lock, reports
+/target/
+
+# Native build tree of the GPU engine (scikit-build-core)
+/build/
+
+# Python
+.venv/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+
+# Logs and editor files
+*.log
+*.swp
+.idea/
+.vscode/
+
+# Local environment and OS files
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# Local graph data and tokenizers
+/data/
+.uv-cache/
+
+# Local release artifacts, tool caches and credentials
+/dist/
+.ruff_cache/
+.aws/
+.netrc
+.pypirc
+*.pem
+*.key
