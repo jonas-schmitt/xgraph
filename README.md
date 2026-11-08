@@ -141,6 +141,17 @@ Keep credentials and private data out of public issues.
 
 ## Citation
 
-Use the software metadata in [CITATION.cff](CITATION.cff) and record the exact
-source commit used in your work. The paper citation remains withheld during
-anonymous review; see [citation scope](docs/citation.md). No DOI is claimed.
+If you use xgraph in research or build on it in your own work, please cite this
+repository as software:
+
+```bibtex
+@software{schmitt_xgraph,
+  author = {Schmitt, Jonas},
+  title = {{xgraph}},
+  url = {https://github.com/jonas-schmitt/xgraph}
+}
+```
+
+Citation metadata is available in [CITATION.cff](CITATION.cff). For reproducibility,
+record the source commit, configuration, and knowledge graph and tokenizer versions
+used. See [citation guidance](docs/citation.md).

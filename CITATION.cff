@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use xgraph, cite the software and record the exact source commit."
+message: "If you use xgraph in research or build on it in your own work, please cite this repository as software and identify the commit and configuration used."
 type: software
 title: xgraph
 authors:

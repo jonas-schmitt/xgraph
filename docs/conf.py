@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 project = "xgraph"
-copyright = "xgraph contributors"
+copyright = "2026 Jonas Schmitt and xgraph contributors"
 release = "0.0.1"
 extensions = ["myst_parser", "sphinx.ext.autodoc", "sphinx.ext.napoleon"]
 source_suffix = {".md": "markdown", ".rst": "restructuredtext"}
